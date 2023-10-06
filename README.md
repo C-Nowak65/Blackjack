@@ -1,1 +1,183 @@
 # Blackjack
+
+This project is going to be a very basic level of the classic game blackjack. All Pseudo code will be put into this read me as well.
+
+############### Our Blackjack House Rules #####################
+
+
+
+## The deck is unlimited in size. 
+
+## There are no jokers. 
+
+## The Jack/Queen/King all count as 10.
+
+## The the Ace can count as 11 or 1.
+
+## Use the following list as the deck of cards:
+
+## cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+
+## The cards in the list have equal probability of being drawn.
+
+## Cards are not removed from the deck as they are drawn.
+
+## The computer is the dealer.
+
+
+
+#Hint 1: Go to this website and try out the Blackjack game: 
+
+#   https://games.washingtonpost.com/games/blackjack/
+
+#Then try out the completed Blackjack project here: 
+
+#   http://blackjack-final.appbrewery.repl.run
+
+
+
+#Hint 2: Read this breakdown of program requirements: 
+
+#   http://listmoz.com/view/6h34DJpvJBFVRlZfJvxF
+
+#Then try to create your own flowchart for the program.
+
+
+
+#Hint 3: Download and read this flow chart I've created: 
+
+#   https://drive.google.com/uc?export=download&id=1rDkiHCrhaf9eX7u7yjM1qwSuyEk-rPnt
+
+
+
+#Hint 4: Create a deal_card() function that uses the List below to *return* a random card.
+
+#11 is the Ace.
+
+#cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+
+
+
+#Hint 5: Deal the user and computer 2 cards each using deal_card() and append().
+
+#user_cards = []
+
+#computer_cards = []
+
+
+
+#Hint 6: Create a function called calculate_score() that takes a List of cards as input 
+
+#and returns the score. 
+
+#Look up the sum() function to help you do this.
+
+
+
+#Hint 7: Inside calculate_score() check for a blackjack (a hand with only 2 cards: ace + 10) and return 0 instead of the actual score. 0 will represent a blackjack in our game.
+
+
+
+#Hint 8: Inside calculate_score() check for an 11 (ace). If the score is already over 21, remove the 11 and replace it with a 1. You might need to look up append() and remove().
+
+
+
+#Hint 9: Call calculate_score(). If the computer or the user has a blackjack (0) or if the user's score is over 21, then the game ends.
+
+
+
+#Hint 10: If the game has not ended, ask the user if they want to draw another card. If yes, then use the deal_card() function to add another card to the user_cards List. If no, then the game has ended.
+
+
+
+#Hint 11: The score will need to be rechecked with every new card drawn and the checks in Hint 9 need to be repeated until the game ends.
+
+
+
+#Hint 12: Once the user is done, it's time to let the computer play. The computer should keep drawing cards as long as it has a score less than 17.
+
+
+
+#Hint 13: Create a function called compare() and pass in the user_score and computer_score. If the computer and user both have the same score, then it's a draw. If the computer has a blackjack (0), then the user loses. If the user has a blackjack (0), then the user wins. If the user_score is over 21, then the user loses. If the computer_score is over 21, then the computer loses. If none of the above, then the player with the highest score wins.
+
+
+
+#Hint 14: Ask the user if they want to restart the game. If they answer yes, clear the console and start a new game of blackjack and show the logo from art.py.
+
+
+TLDR steps to accomplish the task:
+
+
+1. Deal both user and computer a starting hand of 2 random card values.
+
+2. Detect when computer or user has a blackjack. (Ace + 10 value card).
+
+3. If computer gets blackjack, then the user loses (even if the user also has a blackjack). If the user gets a blackjack, then they win (unless the computer also has a blackjack).
+
+4. Calculate the user's and computer's scores based on their card values.
+
+5. If an ace is drawn, count it as 11. But if the total goes over 21, count the ace as 1 instead.
+
+6. Reveal computer's first card to the user.
+
+7. Game ends immediately when user score goes over 21 or if the user or computer gets a blackjack.
+
+8. Ask the user if they want to get another card.
+
+9. Once the user is done and no longer wants to draw any more cards, let the computer play. The computer should keep drawing cards unless their score goes over 16.
+
+10. Compare user and computer scores and see if it's a win, loss, or draw.
+
+11. Print out the player's and computer's final hand and their scores at the end of the game.
+
+12. After the game ends, ask the user if they'd like to play again. Clear the console for a fresh start.
+
+
+Pseudo code 
+
+Ask the user if they would like to play the game.
+print logo from art
+Add the list of cards that will be used.
+
+Have an empty list for both the user and for the dealer
+
+Create a get_card function that will choose a random card 
+
+Use the get_card function to give the user and the dealer 2 random cards from the card list.
+
+Append the choices to both the user_score and the dealer_score lists and find the sum of those lists.
+
+Does the dealer have blackjack?
+    yes: then end game and display the dealer wins.
+    no: continue
+
+Does the user have blackjack?
+    yes: then end game and display the user wins
+    no: continue
+
+Is users's score over 21?
+    yes: do they have an ace?
+        yes: convert to a 1 and see if the score is still over 1.
+            yes: loss
+            no: continue
+        no = loss
+    no: continue
+
+Ask user if they would like another card?
+    yes: get_card and append it to the user list and get sum and check to see if user has gone over 21:
+        yes: then the user loses
+    no: then have the computer play until its score is > 16
+
+Has computer gone over 21?
+    yes: user wins
+    no: compare user score and computer score
+
+user score > dealer: user wins
+user score < dealer: dealer wins
+user score == dealer: draw
+
+Ask if they would like to play again.
+        
+        
+
+
